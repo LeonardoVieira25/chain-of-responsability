@@ -1,9 +1,12 @@
-import aprovacao.Aluno;
 
 public class Main {
     public static void main(String[] args) {
-        Aluno aluno = new Aluno();
-        aluno.setFrequencia(10);
-        System.out.println("Frequência: " + aluno.getFrequencia());
+        Request request = new Request("usuario", "senha");
+
+        new Autenticacao()
+                .setProximo(new Controller())
+                .processarRequest(request);
+
+        System.out.println("Requisição processada com sucesso para o usuário: " + request.userId);
     }
 }
